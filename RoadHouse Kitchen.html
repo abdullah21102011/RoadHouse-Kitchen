@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RoadHouse Kitchen · Steaks, burgers and pizza in North Nazimabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--chili:#D4361A;--ember:#F0652B;--mustard:#EDB93C;--cocoa:#2A1710;--blush:#FBE9DC;
+--display:"Bowlby One","Impact","Arial Black",sans-serif;--body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--cocoa);color:var(--blush);font:400 1.05rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.95;margin:0}
+h2{font-size:clamp(2.2rem,7vw,4.4rem);margin-bottom:1rem}
+section{padding:4.5rem 0}
+.lead{max-width:36rem;margin:0 0 2rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;gap:1rem}
+nav b{font-family:var(--display);font-weight:400;font-size:1.15rem}
+nav div a{margin-left:1.1rem;text-decoration:none;font-weight:500}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:.85rem 1.4rem;border-radius:999px;background:var(--mustard);color:var(--cocoa);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:2px solid currentColor;color:inherit}
+.hero{background:var(--chili);color:#FFF3E6;overflow:hidden;padding:0}
+.hero h1{font-size:clamp(3.6rem,15vw,10.5rem);letter-spacing:-.02em;margin:1.6rem 0 1.4rem}
+.hero h1 span{display:block;animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span:nth-child(2){color:var(--mustard);margin-left:.5em;animation-delay:.12s}
+.hero h1 span:nth-child(3){animation-delay:.24s}
+@keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.status{display:inline-flex;gap:.6rem;align-items:center;background:rgba(42,23,16,.35);padding:.45rem 1rem;border-radius:999px;font-weight:500;font-size:.95rem}
+.dot{width:.65rem;height:.65rem;border-radius:50%;background:var(--mustard)}
+.hero-row{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;align-items:center;justify-content:space-between;padding-bottom:2.5rem}
+.hero p{max-width:30rem;margin:0;font-size:1.2rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.rate{display:flex;gap:1rem 2rem;padding:1.1rem 0 1.4rem;border-top:2px solid rgba(255,243,230,.35);font-weight:500;flex-wrap:wrap}
+.rate strong{font-family:var(--display);font-weight:400;font-size:1.5rem;margin-right:.4rem}
+.mood{background:var(--blush);color:var(--cocoa)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.6rem}
+.chips button,.tabs button{font:700 1rem var(--body);padding:.75rem 1.2rem;border-radius:999px;border:2px solid var(--cocoa);background:transparent;color:var(--cocoa);cursor:pointer;transition:background .2s,color .2s}
+.chips button[aria-pressed="true"],.tabs button[aria-selected="true"]{background:var(--cocoa);color:var(--mustard)}
+.pick{background:var(--chili);color:#FFF3E6;border-radius:28px;padding:2rem;max-width:44rem}
+.pick h3{font-size:2rem;margin-bottom:.6rem}.pick p{margin:0 0 .6rem}.pick .pr{font-family:var(--display);font-size:1.4rem;color:var(--mustard)}
+.tender{background:var(--mustard);color:var(--cocoa)}
+.picker{display:grid;grid-template-columns:1fr 1.3fr;gap:2rem}
+.side{display:flex;flex-direction:column;gap:.6rem}
+.side button{font:700 1.05rem var(--body);text-align:left;padding:1rem 1.2rem;border-radius:14px;border:2px solid var(--cocoa);background:transparent;color:var(--cocoa);cursor:pointer;transition:background .2s,color .2s}
+.side button[aria-selected="true"]{background:var(--cocoa);color:var(--mustard)}
+.panel{background:var(--cocoa);color:var(--blush);border-radius:28px;padding:2.2rem;display:flex;flex-direction:column;justify-content:flex-end;min-height:260px;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--sauce,var(--chili));transition:background .35s}
+.panel h3{font-size:2rem;position:relative;margin-bottom:.7rem}.panel p{margin:0;position:relative;max-width:26rem}
+.menu h2{color:var(--ember)}
+.menu .tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.5rem}
+.menu .tabs button{border-color:var(--blush);color:var(--blush)}
+.menu .tabs button[aria-selected="true"]{background:var(--mustard);color:var(--cocoa);border-color:var(--mustard)}
+.items{list-style:none;margin:0;padding:0;columns:2 22rem;column-gap:3rem}
+.items li{break-inside:avoid;display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(251,233,220,.2)}
+.items .p{color:var(--mustard);font-weight:700;white-space:nowrap}
+.items small{display:block;opacity:.75}
+.note{margin-top:1.4rem;font-size:.92rem;opacity:.75;max-width:40rem}
+.said{background:var(--ember);color:var(--cocoa)}
+.cloud{display:flex;flex-wrap:wrap;gap:.7rem}
+.cloud span{background:var(--cocoa);color:var(--blush);padding:.55rem 1.1rem;border-radius:999px;font-weight:700}
+.cloud span:nth-child(3n){background:var(--blush);color:var(--cocoa)}
+.cloud span:nth-child(4n){background:var(--mustard);color:var(--cocoa)}
+.news .feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+.news article{border:2px solid rgba(251,233,220,.3);border-radius:22px;padding:1.4rem}
+.news h3{font-family:var(--body);font-weight:700;font-size:1.15rem;line-height:1.25;margin-bottom:.4rem}
+.news p{margin:0;opacity:.85}.news time{display:block;font-size:.85rem;color:var(--mustard);margin-bottom:.5rem}
+.visit{background:var(--blush);color:var(--cocoa)}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+.info div{background:#fff;border-radius:22px;padding:1.5rem}
+.info h3{font-family:var(--body);font-weight:700;font-size:1.05rem;margin-bottom:.5rem}
+.info p{margin:0 0 1rem}.info .btn{background:var(--cocoa);color:var(--blush)}
+footer{padding:2rem 0 3rem;font-size:.95rem;opacity:.8}
+@media(max-width:760px){.picker{grid-template-columns:1fr}.hero h1 span:nth-child(2){margin-left:.25em}nav div{display:none}section{padding:3.5rem 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav><b>RoadHouse Kitchen</b><div><a href="#mood">Pick a dish</a><a href="#menu">Menu</a><a href="#news">New</a><a href="#visit">Visit</a></div><a href="tel:03181144482" class="btn ghost">Call</a></nav>
+    <span class="status"><i class="dot"></i><span id="st">Kitchen open late, closes 11:45 pm</span></span>
+    <h1><span>Steak.</span><span>Smash.</span><span>Sizzle.</span></h1>
+    <div class="hero-row">
+      <p>Tenderloin steaks, smash burgers, pizza, pasta and wings in North Nazimabad, Karachi, near Dolmen Mall Hyderi.</p>
+      <div class="cta"><a class="btn" href="#mood">What should I eat?</a><a class="btn ghost" href="#menu">See the menu</a></div>
+    </div>
+    <div class="rate">
+      <span><strong>4.2</strong>on Google</span>
+      <span><strong>1,921</strong>reviews</span>
+      <span><strong>Rs 1,000–6,000</strong>per person</span>
+      <span><strong>10 min–1 hr</strong>typical visit</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="mood" id="mood">
+  <div class="wrap">
+    <h2>What are you craving?</h2>
+    <p class="lead">Tap a mood and we'll point you at a dish.</p>
+    <div class="chips" id="chips"></div>
+    <div class="pick" aria-live="polite"><h3 id="mt"></h3><p id="md"></p><span class="pr" id="mp"></span></div>
+  </div>
+</section>
+
+<section class="tender" id="tender">
+  <div class="wrap">
+    <h2>New: beef tenderloin</h2>
+    <p class="lead">Four ways to have it. Pick a sauce to see what comes with the steak.</p>
+    <div class="picker">
+      <div class="side" role="tablist" aria-label="Tenderloin sauces" id="sauces"></div>
+      <div class="panel" role="tabpanel" aria-live="polite"><h3 id="pt"></h3><p id="pd"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <h2>The menu</h2>
+    <div class="tabs" role="tablist" aria-label="Menu sections" id="mtabs"></div>
+    <ul class="items" id="items"></ul>
+    <p class="note">Prices are from the delivery-app menu and were listed in Pakistani rupees. In-store prices and offers can differ, so call to confirm.</p>
+  </div>
+</section>
+
+<section class="said" id="said">
+  <div class="wrap">
+    <h2>What guests talk about</h2>
+    <p class="lead">The dishes that come up most in Google reviews, from 1,921 ratings.</p>
+    <div class="cloud"><span>steak</span><span>beef burgers</span><span>chicken fillet</span><span>serving size</span><span>tenderstorm steak</span><span>BLC steak</span><span>mint lemonade</span><span>wings</span><span>panini</span></div>
+  </div>
+</section>
+
+<section class="news" id="news">
+  <div class="wrap">
+    <h2>Fresh from the kitchen</h2>
+    <p class="lead">The latest drops from RoadHouse Kitchen's Facebook page.</p>
+    <div class="feed">
+      <article><time>Latest</time><h3>Mustard Cream Fillet</h3><p>A creamy, tangy fillet, launched as a new menu item in both chicken and beef.</p></article>
+      <article><time>This week</time><h3>Tenderloin steaks arrive</h3><p>Rosemary butter, shiitake mushroom, fresh mushroom and chimichurri versions all joined the menu.</p></article>
+      <article><time>Last week</time><h3>Two new smash burgers</h3><p>A Jalapeño Beef Smash Burger and a Turkey Bacon Chicken Smash Burger.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <h2>Come hungry</h2>
+    <div class="info">
+      <div><h3>Find us</h3><p>Shop #2, D-15, Block C, North Nazimabad, near Dolmen Mall Hyderi, Karachi</p><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=RoadHouse+Kitchen+North+Nazimabad+Karachi">Get directions</a></div>
+      <div><h3>Hours</h3><p>Dine-in closes at 11:45 pm.<br>Delivery ends at 11:30 pm.<br>Busy times can mean a wait of up to 30 minutes.</p></div>
+      <div><h3>Ways to order</h3><p>Dine-in, pickup and delivery. Call to ask about today's offers.</p><a class="btn" href="tel:03181144482">0318 1144482</a></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">RoadHouse Kitchen · North Nazimabad, Karachi · Plus code W2PQ+CXG</div></footer>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function tabs(box,list,attr,cb){
+  list.forEach(function(x,i){var b=document.createElement("button");b.textContent=x[0];b.setAttribute("role","tab");
+    b.addEventListener("click",function(){[].forEach.call(box.children,function(c){c.setAttribute(attr,c===b)});cb(x)});
+    box.appendChild(b)});
+  box.children[0].click();
+}
+var moods=[
+["Steak night","Tenderstorm Steak","Comes with four customer-favourite dips. Prefer to design it yourself? Create Your Own steak starts at Rs 2,158, and you choose the weight.","Rs 4,459"],
+["Tender and herby","ChimiChurri Steak","Juicy beef tenderloin with a fresh, herby chimichurri kick.","Rs 3,129"],
+["Burger fix","Jalapeño Beef Smash Burger","A new smash burger with jalapeño heat. Want chicken? Try the Turkey Bacon Chicken Smash Burger.","New"],
+["Comfort pasta","Alfredo Pasta","One of the most ordered dishes. Spicy Fettuccine and Cheesy Fusion Penne are close behind.","Rs 1,241"],
+["Share and snack","Tamarind Wings and Fries","Order it with Loaded Nachos Chicken (Rs 1,145) or Chicken Firestorm Tacos (Rs 998).","Popular"],
+["Something cold","Mint Lemonade","A guest favourite. The coolers come in Rose Lychee, Blueberry and Raspberry, and there is Peach Iced Tea.","Popular"]
+];
+tabs($("chips"),moods,"aria-pressed",function(m){$("mt").textContent=m[1];$("md").textContent=m[2];$("mp").textContent=m[3]});
+[].forEach.call($("chips").children,function(b){b.removeAttribute("role")});
+
+var sauces=[
+["Rosemary butter","Tender beef tenderloin finished with herby rosemary and silky butter.","#D4361A"],
+["Shiitake mushroom","Tenderloin with earthy shiitake mushrooms on the plate.","#8A5A2B"],
+["Fresh mushroom","Tenderloin topped with fresh mushrooms, for the mushroom lovers.","#B0472E"],
+["Chimichurri","Juicy grilled tenderloin with a fresh, herby chimichurri kick.","#3F7D3A"]];
+tabs($("sauces"),sauces,"aria-selected",function(s){$("pt").textContent=s[0];$("pd").textContent=s[1];document.querySelector(".panel").style.setProperty("--sauce",s[2])});
+
+var menu=[
+["Steaks",[["Create Your Own Steak","from Rs 2,158","Choose your weight"],["ChimiChurri Steak","Rs 3,129",""],["Tenderstorm Steak","Rs 4,459","Comes with four customer-favourite dips"],["Rosemary Butter Tenderloin","New",""],["Shiitake Mushroom Tenderloin","New",""],["Mustard Cream Fillet","New","Chicken or beef"],["BLC Steak Show Stopper","",""]]],
+["Pasta and plates",[["Alfredo Pasta","Rs 1,241",""],["Spicy Fettuccine Pasta","Rs 1,241",""],["Cheesy Fusion Penne Pasta","Rs 1,205",""],["It's Raining Cheese Chicken","Rs 1,082",""],["Chicken Firestorm Tacos","Rs 998",""],["Loaded Nachos Chicken","Rs 1,145",""],["Cream of Mushroom Soup","","Served warm, finished with herbs"]]],
+["Burgers, pizza, sandwiches",[["Jalapeño Beef Smash Burger","New",""],["Turkey Bacon Chicken Smash Burger","New",""],["Beef Loaded Burger","",""],["Beef Burger with Cheese","",""],["BBQ Pizza","","Popular"],["Creamy Tikka Pizza","",""],["Cluck Pizza","",""],["Roadhouse Club Sandwich","","Also as a panini"],["Tamarind Wings and Fries","","Popular"]]],
+["Drinks and sweets",[["Mint Lemonade","","Popular"],["Pina Colada","","Popular"],["Strawberry Lemonade","",""],["Peach Iced Tea","",""],["Rose Lychee Cooler","",""],["Blueberry Cooler","",""],["Raspberry Cooler","",""],["Brown Butter Latte","",""],["Spanish Latte","",""],["Salted Caramel Mocha","",""],["Gelato, shakes and frappes","",""],["Sizzling Brownie with Ice Cream","",""]]]];
+tabs($("mtabs"),menu,"aria-selected",function(m){
+  $("items").innerHTML=m[1].map(function(r){return "<li><span>"+r[0]+(r[2]?"<small>"+r[2]+"</small>":"")+"</span><span class='p'>"+r[1]+"</span></li>"}).join("")});
+menu.forEach(function(){});
+// menu tabs need the tab list wiring only; items re-render on click
+
+var st=$("st");
+function tick(){
+  try{
+    var p=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Karachi",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date()),h=0,m=0;
+    p.forEach(function(x){if(x.type==="hour")h=+x.value%24;if(x.type==="minute")m=+x.value});
+    var left=23*60+45-(h*60+m);
+    if(h>=12&&left>0){st.textContent="Kitchen closes in "+Math.floor(left/60)+"h "+(left%60)+"m (11:45 pm)"}
+  }catch(e){}
+}
+tick();setInterval(tick,60000);
+})();
+</script>
+</body>
+</html>
